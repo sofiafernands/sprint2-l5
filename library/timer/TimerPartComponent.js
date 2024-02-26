@@ -1,9 +1,9 @@
-import { html, css, LitElement } from 'lit';
+import { LitElement, html, css } from 'lit';
 
 export class TimerPartComponent extends LitElement {
     static properties = {
-        value: { type: Number },
-        format: { type: String },
+        value: { type: Number, attribute: true },
+        format: { type: String , attribute: true},
     };
 
     constructor () {
@@ -22,16 +22,15 @@ export class TimerPartComponent extends LitElement {
 
     render() {
         return html`
-            <div>${this._formatValue(this.value)}</div>
+            <div>${this._formatTime(this.value)}</div>
         `;
     }
 
-    _formatValue(value) {
-        if (this.format === 'hours') {
-            return value.toString().padStart(2, '0');
-        }
-        return value;
+    _formatTime(time) {
+        if (this.format?.length > 1) 
+            return time < 10 ? `0${time}` : time;
+        return time;
     }
 }
 
-customElements.define('time-part-component', TimerPartComponent);
+window.customElements.define('time-part-component', TimerPartComponent);

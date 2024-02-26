@@ -3,14 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de tu página</title>
-    <link rel="stylesheet" href="./src/css/components.css">
-    <link rel="stylesheet" href="./src/css/global.css">
+    <title>Timer component</title>
+    <link rel="stylesheet" href="../../src/css/global.css">
 
-    <!-- Aquí van tus etiquetas meta, enlaces a CSS, etc. -->
-    <script type="module" src="./TimerComponent.js"></script>
 </head>
 <body>
-    <time-part-component value="10" format="hours"></time-part-component>
+    <style>
+        html {
+            background-color: var(--secondary-color);
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #timer header {
+            margin-bottom: 80px;
+        }
+        timer-player-component {
+            --timer-component-part-color: var(--neutral-color);
+            --timer-component-part-padding: 10px;
+            --timer-component-part-box-shadow: 0 0 10px 0 var(--neutral-color);
+            --timer-component-border-radius: 10px;
+            --timer-player-component-button-status-margin: 0 10px;
+            --timer-player-component-status-font-size: 20px;
+            --timer-player-component-status-color: var(--info-color);
+
+            color: var(--neutral-color);
+            background-color: var(--primary-lightest-color);
+            padding: 40px;
+            box-shadow: 0 0 10px 0 var(--neutral-color);
+
+
+        }
+    </style>
+
+<div id="timer">
+    <header>
+        <h1>Timer</h1>
+        <span id="volver">
+            <a href="../../index.html">Volver</a>
+        </span>
+    </header>
+    <timer-player-component play-btn pause-btn reset-btn>
+        <timer-component reverse start="1500" autoreset></timer-component>
+    </timer-player-component>
+</div>
+
 </body>
+<script type="module" src="./index.js"></script>
 </html>
